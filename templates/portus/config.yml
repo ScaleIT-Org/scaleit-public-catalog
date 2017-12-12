@@ -1,0 +1,6 @@
+name: portus
+description: |
+  Portus is an authorization server and a user interface for the next generation
+  of the Docker registry. Portus targets version 2 of the Docker Registry API.
+version: latest
+category: Repository

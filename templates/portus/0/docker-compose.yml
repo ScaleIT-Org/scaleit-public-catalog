@@ -1,0 +1,56 @@
+srv:
+  restart: always
+  image: registry:2.6.1
+  container_name: registry-srv
+  volumes:
+    - ./config/config.yml:/etc/docker/registry/config.yml
+    - ./data:/var/lib/registry
+    - ./srv/platform-essentials/portus/certs:/certs
+web:
+  image: opensuse/portus:2.2
+  container_name: registry-portus
+  # env_file:
+  #   - .env
+  volumes:
+    - "./certs/fullchain.pem:/certificates/portus-ca.crt:ro"
+    - "./certs/privkey.pem:/secrets/portus.key:ro"
+    - "./portus/config-local.yml:/srv/Portus/config/config-local.yml"
+  links:
+    - db
+  environment:
+    - PORTUS_SECRET_KEY_BASE='<1234>'
+    - DEBUG=false
+    - RACK_ENV=production
+    - RAILS_ENV=production
+    - PORTUS_MACHINE_FQDN_VALUE=${PORTUS_MACHINE_FQDN_VALUE}
+    - PORTUS_PORTUS_PASSWORD='1234'
+    - MARIADB_SERVICE_HOST=db
+    - MARIADB_ADAPTER=mysql2
+    - MARIADB_ENCODING=utf8
+    - MARIADB_USER=portus
+    - MARIADB_PASSWORD=portus
+    - MARIADB_DATABASE=portus
+
+db:
+  container_name: registry-mariadb
+  image: mariadb:10
+  environment:
+    - MYSQL_ROOT_PASSWORD=portus
+    - MYSQL_USER=portus
+    - MYSQL_PASSWORD=portus
+    - MYSQL_DATABASE=portus
+
+nginx:
+  command: ["/bin/sh", "start.sh"]
+  image: nginx
+  container_name: registry-nginx
+  ports:
+    - "8090:8090"
+  #  - "80:80"
+  links:
+    - srv
+    - web
+  volumes:
+    - "./nginx/conf.d:/etc/nginx/conf.d"
+    - "./nginx/nginx.conf:/etc/nginx/nginx.conf"
+    - "./certs:/certs"

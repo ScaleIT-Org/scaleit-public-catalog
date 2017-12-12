@@ -1,0 +1,30 @@
+#https://github.com/ludekvesely/docker-logspout-elk
+version: '2'
+services:
+  logstash:
+    image: ludekvesely/logstash-json
+    environment:
+      - LOGSPOUT=ignore
+      - DROP_NON_JSON=false
+      - STDOUT=true
+    ports:
+      - 5000:5000
+      - 5000:5000/udp
+    links:
+      - elasticsearch
+
+  kibana:
+    image: kibana
+    environment:
+      - LOGSPOUT=ignore
+    links:
+      - elasticsearch
+    ports:
+      - '5601:5601'
+
+  elasticsearch:
+    image: elasticsearch
+    ports:
+      - '9200:9200'
+    environment:
+      - LOGSPOUT=ignore

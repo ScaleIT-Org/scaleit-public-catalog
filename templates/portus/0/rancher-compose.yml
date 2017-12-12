@@ -1,0 +1,19 @@
+version: '2'
+
+catalog:
+  name: "portus"
+  version: "latest"
+  description: "Portus is an authorization server and a user interface for the next generation
+  of the Docker registry. Portus targets version 2 of the Docker Registry API."
+  questions:
+    - variable: "PORTUS_MACHINE_FQDN_VALUE"
+      description: "Portus hostname (without uri scheme http:// or https://)"
+      label: "Hostname:"
+      required: true
+      default: "portus.staging.teco.edu"
+      type: "string"
+    - variable: "EMAIL"
+      label: "Email:"
+      required: true
+      default: "admin@staging.teco.edu"
+      type: "string"

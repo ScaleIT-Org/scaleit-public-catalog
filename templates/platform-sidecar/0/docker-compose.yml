@@ -1,0 +1,23 @@
+version: '2'
+services:
+    domaincontainer:
+      build: DomainSoftware/DomainContainer1
+      image: 192.168.122.126:5000/domaincontainer
+      restart: always
+      ports:
+        - "9001:80"
+      volumes:
+        - appvolume:/var/www/localhost/htdocs
+      command: sh -c "cd /usr/sbin; nginx; php-fpm7; crond -f -l 2"
+    platformsidecar:
+      build: PlatformSidecars/SidecarContainer1
+      image: 192.168.122.126:5000/platformsidecar
+      restart: always
+      ports:
+        - "9090:8080"
+      volumes:
+        - apivolume:/var/www/localhost/htdocs
+      command: sh -c "cd /usr/sbin; nginx; php-fpm7; crond -f -l 2"
+volumes:
+      appvolume:
+      apivolume:

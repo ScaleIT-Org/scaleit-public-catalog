@@ -1,0 +1,5 @@
+name: production-manager-cockpit
+description: |
+  Visualisierung von First Pass Yield und DPM Informationen.
+version: latest
+category: Project management

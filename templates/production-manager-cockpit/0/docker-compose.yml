@@ -1,0 +1,46 @@
+version: '2'
+services:
+  dashboard:
+    image: localhost:5000/dashboard
+    ports:
+      - "3000:3000"
+  m1:
+    image: localhost:5000/mashine1
+    ports:
+      - "3001:3000"
+  m2:
+    image: localhost:5000/mashine2
+    ports:
+      - "3002:3000"
+  etcdbrowser:
+    image: localhost:5000/zaebalo
+    ports:
+      - "8081:8080"
+    expose:
+      - "8080"
+
+
+  etcd:
+    image: quay.io/coreos/etcd
+
+    command:
+      - /usr/local/bin/etcd
+      - "-advertise-client-urls=http://0.0.0.0:2379"
+      - "-listen-client-urls=http://0.0.0.0:2379"
+    ports:
+      - "2379:2379"
+    environment:
+      - ETCD_CORS=*
+  portainer:
+    image: portainer/portainer
+    ports:
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # these variables are unused by this service.
+      # They are metadata required, by the letsencrypt-companion
+      - VIRTUAL_HOST
+      - VIRTUAL_PORT
+      - LETSENCRYPT_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_EMAIL
