@@ -105,10 +105,6 @@ portus:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:container_label_soft: registry.portus.db=1
     registry.portus.app: 1
-    rap.port: '443'
+    rap.port: '5000'
     rap.le_host: portus.staging.teco.edu
     rap.host: portus.staging.teco.edu
-labels:
-      rap.port: '5000'
-      rap.le_host: portus.staging.teco.edu
-      rap.host: portus.staging.teco.edu
