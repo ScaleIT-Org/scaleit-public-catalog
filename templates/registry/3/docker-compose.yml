@@ -108,3 +108,7 @@ portus:
     rap.port: '443'
     rap.le_host: portus.staging.teco.edu
     rap.host: portus.staging.teco.edu
+labels:
+      rap.port: '5000'
+      rap.le_host: portus.staging.teco.edu
+      rap.host: portus.staging.teco.edu
