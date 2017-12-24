@@ -1,7 +1,7 @@
 .catalog:
-  name: "Registry"
+  name: "Portus"
   version: "v2.3.1-3.1"
-  description: "Docker Registry"
+  description: "Docker Registry with GUI"
   uuid: registry-3
   questions:
     - variable: "RPORT"
@@ -28,22 +28,12 @@
       required: true
       default: password
       type: "password"
-    - variable: "DIR"
-      label: "Storage directory"
-      description: "Path of shared storage to use for registry, database, and certificates.  This should be available on all hosts"
-      required: true
-      type: "string"
     - variable: "DOMAIN"
       label: "FQDN"
       description: "FQDN of server.  This should be the CN in the certificates and will be the URL to contact the Registry and Web interface"
       required: true
+      default: portus.staging.teco.edu
       type: "string"
-    - variable: "LDAP"
-      label: "LDAP Enabled"
-      description: "Enable LDAP authentication"
-      required: true
-      default: false
-      type: "boolean"
     - variable: "LDAPHOST"
       label: "LDAP Server"
       description: "The FQDN of the LDAP server (if LDAP authentication is being used)"
