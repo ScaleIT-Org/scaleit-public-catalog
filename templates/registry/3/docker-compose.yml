@@ -8,7 +8,7 @@ db:
   tty: true
   stdin_open: true
   volumes:
-  - ${DIR}/db:/var/lib/mysql
+  - /srv/platform-essentials/portus/db:/var/lib/mysql
   labels:
     registry.portus.db: 1
 sslproxy:
@@ -18,8 +18,8 @@ sslproxy:
   links:
   - portus:portus
   volumes:
-  - ${DIR}/certs:/etc/nginx/certs:ro
-  - ${DIR}/proxy:/etc/nginx/conf.d:ro
+  - /srv/platform-essentials/portus/certs:/etc/nginx/certs:ro
+  - /srv/platform-essentials/portus/proxy:/etc/nginx/conf.d:ro
   labels:
     io.rancher.scheduler.affinity:container_label_soft: registry.portus.db=1
 registry:
@@ -46,8 +46,8 @@ registry:
   links:
   - portus:portus
   volumes:
-  - ${DIR}/certs:/certs
-  - ${DIR}/data:/var/lib/registry
+  - /srv/platform-essentials/portus/certs:/certs
+  - /srv/platform-essentials/portus/data:/var/lib/registry
 lb:
   image: rancher/load-balancer-service
   tty: true
@@ -97,8 +97,8 @@ portus:
   tty: true
   stdin_open: true
   volumes:
-  - ${DIR}/certs:/certs
-  - ${DIR}/proxy:/etc/nginx/conf.d
+  - /srv/platform-essentials/portus/certs:/certs
+  - /srv/platform-essentials/portus/proxy:/etc/nginx/conf.d
   links:
   - db:db
   labels:
