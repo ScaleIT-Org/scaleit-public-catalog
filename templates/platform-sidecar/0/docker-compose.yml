@@ -21,10 +21,3 @@ services:
             - VIRTUAL_PORT=1000
         networks:
             - default
-        labels:
-          io.rancher.container.pull_image: always
-          io.rancher.scheduler.affinity:container_label_soft: registry.portus.db=1
-          registry.portus.app: 1
-          rap.port: '1000'
-          rap.le_host: sidecar.app.staging.teco.edu
-          rap.host: sidecar.app.staging.teco.edu
