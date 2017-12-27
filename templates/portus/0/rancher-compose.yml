@@ -38,19 +38,19 @@
       label: "LDAP Server"
       description: "The FQDN of the LDAP server (if LDAP authentication is being used)"
       required: false
-      default: "ldap.company.com"
+      default: "ldap.teco.edu"
       type: "string"
     - variable: "LDAPPORT"
       label: "LDAP Server port"
       description: "The port number on the LDAP server (if LDAP authentication is being used)"
       required: false
-      default: 389
+      default: 636
       type: "int"
     - variable: "LDAPTLS"
       label: "LDAP TLS"
       description: "The TLS option for the LDAP server (if LDAP authentication is being used)"
       required: false
-      default: "starttls"
+      default: "simple_tls"
       type: "enum"
       options:
         - starttls
@@ -60,19 +60,19 @@
       label: "LDAP Base DN"
       description: "The Base DN for User lookups on the LDAP server (if LDAP authentication is being used)"
       required: false
-      default: "ou=People,dc=company,dc=com"
+      default: "ou=People,dc=teco,dc=edu"
       type: "string"
     - variable: "LDAPBIND"
       label: "LDAP Bind enabled"
       description: "Should an authenticated Bind be used to access LDAP (if LDAP authentication is being used)"
       required: false
-      default: false
+      default: true
       type: "boolean"
     - variable: "LDAPBINDDN"
       label: "LDAP Bind DN"
       description: "The DN to use for binding to the LDAP server (if LDAP authentication is being used with Bind enabled)"
       required: false
-      default: "ou=portus,dc=company,dc=com"
+      default: "uid=testuser,ou=People,dc=teco,dc=edu"
       type: "string"
     - variable: "LDAPBINDPASS"
       label: "LDAP Bind Password"

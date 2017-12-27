@@ -1,23 +1,30 @@
-version: '2'
+version: '3'
+
 services:
-    domaincontainer:
-      build: DomainSoftware/DomainContainer1
-      image: 192.168.122.126:5000/domaincontainer
-      restart: always
-      ports:
-        - "9001:80"
-      volumes:
-        - appvolume:/var/www/localhost/htdocs
-      command: sh -c "cd /usr/sbin; nginx; php-fpm7; crond -f -l 2"
-    platformsidecar:
-      build: PlatformSidecars/SidecarContainer1
-      image: 192.168.122.126:5000/platformsidecar
-      restart: always
-      ports:
-        - "9090:8080"
-      volumes:
-        - apivolume:/var/www/localhost/htdocs
-      command: sh -c "cd /usr/sbin; nginx; php-fpm7; crond -f -l 2"
-volumes:
-      appvolume:
-      apivolume:
+
+    sda-test-app:
+        image: localhost:5000/test-app
+        # no port declaration because the app should be isolated
+
+    x-spsc-identity-mananger:
+        image: localhost:5000/identity-manager
+
+    x-spsc-license-mananger:
+        image: localhost:5000/license-manager
+
+    x-spsc-router:
+        image: localhost:5000/router
+        expose:
+            - 1000
+        environment:
+            - VIRTUAL_HOST=sidecar.app.staging.teco.edu
+            - VIRTUAL_PORT=1000
+        networks:
+            - default
+        labels:
+          io.rancher.container.pull_image: always
+          io.rancher.scheduler.affinity:container_label_soft: registry.portus.db=1
+          registry.portus.app: 1
+          rap.port: '1000'
+          rap.le_host: sidecar.app.staging.teco.edu
+          rap.host: sidecar.app.staging.teco.edu
