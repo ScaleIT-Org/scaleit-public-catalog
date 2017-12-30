@@ -1,6 +1,6 @@
-version: '2' 
+version: '2'
 services:
     pmc:
-        build: .
+        image: localhost:5000/pmc
         ports:
           - "5002:5002"
