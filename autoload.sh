@@ -1,8 +1,9 @@
+#!/bin/bash 
 echo Creating new version ${1##*/} App in catalog
 cd ${1##*/}
 
 
-echo Clonig $1
+echo Cloning $1
 git clone $1
 cd ${1##*/}
 
