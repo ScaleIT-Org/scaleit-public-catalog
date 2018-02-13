@@ -49,6 +49,7 @@ echo "version: '2'
 catalog:
   name: \"$name\"
   version: \"$version\"" >> rancher-compose.yml
+  
 # Read environments variable from .env.default and parse them to questions in
 # rancher-compose
 if [ -f ".env.default" ]; then
