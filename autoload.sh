@@ -15,7 +15,6 @@ cd templates/$name
 # Cloning the repository with the App.
 echo Cloning $1
 git clone $1
-cd $name
 
 # Copy the icon
 mv $name/catalogIcon-$name.*  .
@@ -43,21 +42,21 @@ for f in  ./* ; do
   fi;
 done;
 echo Number $version
-
+mkdir $version
 # Creating rancher.compose.yml
 echo "version: '2'
 catalog:
   name: \"$name\"
-  version: \"$version\"" >> rancher-compose.yml
-  
+  version: \"$version\"" >> ./$version/rancher-compose.yml
+
 # Read environments variable from .env.default and parse them to questions in
 # rancher-compose
 if [ -f ".env.default" ]; then
-  echo "  questions:" >> rancher-compose.yml
+  echo "  questions:" >> ./$version/rancher-compose.yml
   cat .env | while read line; do
     echo $line
-    echo "    - variable: \"${line%=*}\"" >> rancher-compose.yml
-    echo "      default: ${line##*=}" >> rancher-compose.yml
+    echo "    - variable: \"${line%=*}\"" >> ./$version/rancher-compose.yml
+    echo "      default: ${line##*=}" >> ./$version/rancher-compose.yml
   done
 fi
 
