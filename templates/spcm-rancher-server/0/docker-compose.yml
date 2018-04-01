@@ -1,0 +1,17 @@
+version: "2"
+services:
+  rancher_server:
+    image: rancher/server:latest
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - 8080:8080
+    expose: 
+      - 8080
+    volumes: 
+      - serverdb:/var/lib/mysql
+      - certs:/var/lib/rancher/etc/ssl/ca.crt
+
+volumes:
+  serverdb:
+  certs:

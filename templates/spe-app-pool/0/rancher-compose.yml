@@ -1,0 +1,4 @@
+version: '2'
+catalog:
+  name: "spe-app-pool"
+  version: "0"

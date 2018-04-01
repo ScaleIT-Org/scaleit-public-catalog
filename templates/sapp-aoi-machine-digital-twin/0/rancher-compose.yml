@@ -1,0 +1,4 @@
+version: '2'
+catalog:
+  name: "sapp-aoi-machine-digital-twin"
+  version: "0"

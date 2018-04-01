@@ -1,0 +1,7 @@
+version: "2"
+
+services:
+    aoi-machine-digital-twin:
+        build: ./Domain Software/AOI Machine/
+        ports: 
+            - "3000:3000"
