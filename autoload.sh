@@ -167,3 +167,6 @@ function local {
 if [ "$1" = "-remote" ]; then
   remote $2
 fi
+if [ "$1" = "-local" ]; then
+  local
+fi
