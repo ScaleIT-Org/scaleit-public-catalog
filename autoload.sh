@@ -50,9 +50,9 @@ function remote {
     echo Write description of the App
     read description
     echo "name: $name
-    description: |
-      $description
-    category: Applications" >> config.yml
+description: |
+  $description
+category: Applications" >> config.yml
   fi
 
 
@@ -165,7 +165,8 @@ function local {
 
 if [ "$1" = "-remote" ]; then
   remote $2
-fi
-if [ "$1" = "-local" ]; then
+elif [ "$1" = "-local" ]; then
   local
+else
+  usage
 fi
