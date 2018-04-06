@@ -1,6 +1,6 @@
 version: "2"
 services:
    nodejs-app-skeleton:
-        build: .
+     build: .
         ports:
           - "3000:3000"

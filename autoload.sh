@@ -75,9 +75,9 @@ category: Applications" >> config.yml
   # rancher-compose
   cd $name
   echo "version: '2'
-  catalog:
-    name: \"$name\"
-    version: \"$version\"" >> rancher-compose.yml
+catalog:
+  name: \"$name\"
+  version: \"$version\"" >> rancher-compose.yml
   if [ -f ".env.default" ]; then
     echo "  questions:" >> rancher-compose.yml
     cat .env | while read line; do
@@ -118,9 +118,9 @@ function local {
     echo Write description of the App
     read description
     echo "name: $name
-    description: |
-      $description
-    category: Applications" >> ./rancher-catalog-entry/config.yml
+  description: |
+    $description
+  category: Applications" >> ./rancher-catalog-entry/config.yml
   fi
 
 
@@ -142,9 +142,9 @@ function local {
   # Read environments variable from .env.default and parse them to questions in
   # rancher-compose
   echo "version: '2'
-  catalog:
-    name: \"$name\"
-    version: \"$version\"" >> ./rancher-catalog-entry/$version/rancher-compose.yml
+catalog:
+  name: \"$name\"
+  version: \"$version\"" >> ./rancher-catalog-entry/$version/rancher-compose.yml
   if [ -f ".env.default" ]; then
     echo "  questions:" >> ./rancher-catalog-entry/rancher-compose.yml
     cat .env | while read line; do
