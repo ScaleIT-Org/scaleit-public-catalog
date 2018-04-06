@@ -1,4 +1,4 @@
 version: '2'
-  catalog:
-    name: "aoi-vis-app"
-    version: "1"
+catalog:
+  name: "aoi-vis-app"
+  version: "1"
