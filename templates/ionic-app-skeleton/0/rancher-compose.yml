@@ -1,4 +1,0 @@
-version: '2'
-  catalog:
-    name: "ionic-app-skeleton"
-    version: "0"
