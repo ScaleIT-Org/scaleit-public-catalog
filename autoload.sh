@@ -71,14 +71,13 @@ function remote {
   echo Number $version
   mkdir $version
   # Creating rancher.compose.yml
-  echo "version: '2'
-  catalog:
-    name: \"$name\"
-    version: \"$version\"" >> ./$version/rancher-compose.yml
-
   # Read environments variable from .env.default and parse them to questions in
   # rancher-compose
   cd $name
+  echo "version: '2'
+  catalog:
+    name: \"$name\"
+    version: \"$version\"" >> rancher-compose.yml
   if [ -f ".env.default" ]; then
     echo "  questions:" >> rancher-compose.yml
     cat .env | while read line; do
@@ -103,6 +102,8 @@ function remote {
 }
 
 function local {
+
+  name=${pwd##*/}
 
   if [ ! -d "rancher-catalog-entry" ]; then
     mkdir rancher-catalog-entry
@@ -138,13 +139,12 @@ function local {
   echo Number $version
   mkdir ./rancher-catalog-entry/$version
   # Creating rancher.compose.yml
+  # Read environments variable from .env.default and parse them to questions in
+  # rancher-compose
   echo "version: '2'
   catalog:
     name: \"$name\"
     version: \"$version\"" >> ./rancher-catalog-entry/$version/rancher-compose.yml
-
-  # Read environments variable from .env.default and parse them to questions in
-  # rancher-compose
   if [ -f ".env.default" ]; then
     echo "  questions:" >> ./rancher-catalog-entry/rancher-compose.yml
     cat .env | while read line; do
@@ -160,8 +160,7 @@ function local {
 
   # Change version of docker-compose file to 2 and change App version name in
   # rancher-compose.
-  cd ./rancher-catalog-entry/$version
-  sed -i '' 's/version: .*/version: "2"/g'  ./rancher-catalog-entry/docker-compose.yml
+  sed -i '' 's/version: .*/version: "2"/g'  ./rancher-catalog-entry/$version/docker-compose.yml
 }
 
 if [ "$1" = "-remote" ]; then
