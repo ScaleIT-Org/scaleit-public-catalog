@@ -1,4 +1,0 @@
-version: '2'
-catalog:
-  name: "nodejs-app-skeleton"
-  version: "0"
