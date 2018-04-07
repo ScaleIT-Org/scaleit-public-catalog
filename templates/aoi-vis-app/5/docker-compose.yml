@@ -4,21 +4,21 @@ services:
     image: aoivisapp_dashboard
 #    build: ./Domain Software/dashboard/
     ports:
-      - "3000:3000"
+      - "49550:3000"
   m1:
     image: aoivisapp_m1
 #    build: ./Domain Software/machine1/
     ports:
-      - "3001:3000"
+      - "49551:3000"
   m2:
     image: aoivisapp_m2
 #    build: ./Domain Software/machine2/
     ports:
-      - "3002:3000"
+      - "49552:3000"
   etcdbrowser:
     image: woosley/etcd-browser
     ports:
-      - "8081:8080"
+      - "49553:8080"
 #    volumes:
 #      - ./DomainSoftware/etcd-browser/config.yaml:/app/config.yaml
   etcd:
@@ -34,7 +34,7 @@ services:
   portainer:
     image: portainer/portainer
     ports:
-      - 9000:9000
+      - 49554:9000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
