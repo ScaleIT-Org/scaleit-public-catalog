@@ -19,8 +19,8 @@ services:
     image: woosley/etcd-browser
     ports:
       - "8081:8080"
-    volumes:
-      - ./DomainSoftware/etcd-browser/config.yaml:/app/config.yaml
+#    volumes:
+#      - ./DomainSoftware/etcd-browser/config.yaml:/app/config.yaml
   etcd:
     image: quay.io/coreos/etcd
     command:
