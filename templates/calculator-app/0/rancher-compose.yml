@@ -1,0 +1,4 @@
+version: '2'
+catalog:
+  name: "calculator-app"
+  version: "0"
