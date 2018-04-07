@@ -1,5 +1,6 @@
 version: '2'
 services:
    calculator:
+      image: "calculator"
       ports:
          - "49650:80"
