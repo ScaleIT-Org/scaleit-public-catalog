@@ -1,7 +1,0 @@
-version: '2' 
-services:
-    pmc:
-#        build: Domain Software/PMC/.
-       image: sappproductionmanagercockpit_pmc 
-       ports:
-          - "49560:5002"
