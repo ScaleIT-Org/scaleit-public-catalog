@@ -1,0 +1,4 @@
+version: '2'
+catalog:
+  name: "sapp-production-manager-cockpit"
+  version: "0"
