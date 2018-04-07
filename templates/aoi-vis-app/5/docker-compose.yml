@@ -20,7 +20,7 @@ services:
     ports:
       - "8081:8080"
     volumes:
-      - ./Domain_Software/etcd-browser/config.yaml:/app/config.yaml
+      - ./DomainSoftware/etcd-browser/config.yaml:/app/config.yaml
   etcd:
     image: quay.io/coreos/etcd
     command:
