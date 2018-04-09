@@ -42,7 +42,7 @@ function remote {
   git clone $1
 
   # Copy the icon
-  mv $name/catalogIcon-$name.*  .
+  mv $name/Resources/Rancher/catalogIcon-$name.*  .
 
   # Create config (only the first creat of the entry).
   if [ ! -f "config.yml" ]; then

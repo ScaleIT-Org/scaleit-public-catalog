@@ -1,0 +1,6 @@
+version: '2' 
+services:
+    pmc:
+        build: Domain Software/PMC/.
+        ports:
+          - "5002:5002"
