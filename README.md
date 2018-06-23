@@ -1,11 +1,18 @@
-# Create rancher catalog
-![folder_strukture](images/folder_strukture.png)
-To add or update an App start the script autoload.sh in catalog directory with
-the link to repository as argument.
+# Rancher catalog
 
-## Rancher ADMIN -> Settings
-## Add catalog name and repo link
+##Integrate catalog
+If you want to integrate catalog in your rancher instance, go to **Rancher ADMIN** -> **Settings** and add catalog name and repo link ([https://github.com/ScaleIT-Org/scaleit-public-catalog] for this catalog) like here:
 ![settings](images/settings.png)
+
+##Entries in catalog
+To add or update an app start the script autoload.sh in root catalog directory with the link to repository as argument:
+```
+./autoload.sh [link]
+```
+If there is no entry with the app, script creates one, else it add the new version. You can also do it manually, just add a folder like this:
+![folder_strukture](images/folder_strukture.png)
+
+
 ## Result
 ![result](images/result.png)
 ![result1](images/result1.png)
