@@ -5,10 +5,15 @@ If you want to integrate catalog in your rancher instance, go to **Rancher ADMIN
 ![settings](images/settings.png)
 
 ## Entries in catalog
-To add or update an app start the script autoload.sh in root catalog directory with the link to repository as argument:
+To add or update an app from remote repository start the script autoload.sh in root catalog directory with the link to repository as argument:
 ```
-./autoload.sh [link]
+./autoload.sh -remote [link]
 ```
+Or you can run it local from the root directory of your app:
+```
+./autoload.sh -local
+```
+
 If there is no entry with the app, script creates one, else it add the new version. You can also do it manually, just add a folder like this:
 ![folder_strukture](images/folder_strukture.png)
 
