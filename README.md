@@ -1,10 +1,10 @@
 # Rancher catalog
 
-##Integrate catalog
+## Integrate catalog
 If you want to integrate catalog in your rancher instance, go to **Rancher ADMIN** -> **Settings** and add catalog name and repo link ([https://github.com/ScaleIT-Org/scaleit-public-catalog] for this catalog) like here:
 ![settings](images/settings.png)
 
-##Entries in catalog
+## Entries in catalog
 To add or update an app start the script autoload.sh in root catalog directory with the link to repository as argument:
 ```
 ./autoload.sh [link]
