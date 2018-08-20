@@ -1,7 +1,7 @@
 version: '2'
 services:
  etcdbrowser:
-   image: localhost:5000/etcd-browser
+   image: spe-app-registry-etcd-browser
    ports:
    - 49502:49502/tcp
    labels:
