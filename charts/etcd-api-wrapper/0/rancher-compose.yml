@@ -1,4 +1,0 @@
-version: '2'
-catalog:
-  name: "etcd-api-wrapper"
-  version: "0"

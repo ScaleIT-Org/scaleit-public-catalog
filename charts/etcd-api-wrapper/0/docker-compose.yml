@@ -1,9 +1,0 @@
-version: '3.1'
-services:
-  app-registry-etcd-wrapper:
-    build: "server/."
-    ports:
-      - "49503:49503"
-    environment:
-      SERVER_PROTOCOL: https
-    restart: always

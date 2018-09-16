@@ -1,4 +1,0 @@
-name: spcm-rancher-server
-  description: |
-    There is the separate software as a submodule, called Rancher Active Proxy, which is an all-in-one reverse proxy for Rancher, supporting Letsencrypt out of the box!
-  category: Applications

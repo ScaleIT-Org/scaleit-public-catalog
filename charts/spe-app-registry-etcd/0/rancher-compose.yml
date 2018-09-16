@@ -1,5 +1,0 @@
-.catalog:
-  name: spe-app-registry-etcd
-  version: "v1.2"
-  description: "ETCD Store and browser"
-  minimum_rancher_version: v1.2.0
