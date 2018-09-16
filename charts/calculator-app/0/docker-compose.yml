@@ -1,0 +1,6 @@
+version: '2'
+services:
+   calculator:
+      image: "calculatorapp_calculator"
+      ports:
+         - "49650:80"

@@ -1,0 +1,6 @@
+version: '2'
+services:
+   calculator:
+      image: "http://staging.teco.edu:49650/"
+      ports:
+         - "49650:80"

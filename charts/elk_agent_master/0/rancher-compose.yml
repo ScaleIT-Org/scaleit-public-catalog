@@ -1,0 +1,6 @@
+version: '2'
+
+catalog:
+  name: "aoi-vis-app"
+  version: "latest"
+  description: "Visualisierungs Applikation/Dashboard im ScaleIT Kontext zur Darstellung eines AOI Prozesses."

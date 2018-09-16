@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+    aoi-machine-digital-twin:
+        image: sappaoimachinedigitaltwin_aoi-machine-digital-twin
+#        build: ./Domain Software/AOI Machine/
+        ports: 
+            - "49520:3000"

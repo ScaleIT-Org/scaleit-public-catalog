@@ -1,0 +1,46 @@
+version: '2'
+services:
+  dashboard:
+    image: aoivisapp_dashboard
+#    build: ./Domain Software/dashboard/
+    ports:
+      - "49550:3000"
+  m1:
+    image: aoivisapp_m1
+#    build: ./Domain Software/machine1/
+    ports:
+      - "49551:3000"
+  m2:
+    image: aoivisapp_m2
+#    build: ./Domain Software/machine2/
+    ports:
+      - "49552:3000"
+  etcdbrowser:
+    image: woosley/etcd-browser
+    ports:
+      - "49553:8080"
+#    volumes:
+#      - ./DomainSoftware/etcd-browser/config.yaml:/app/config.yaml
+  etcd:
+    image: quay.io/coreos/etcd
+    command:
+      - /usr/local/bin/etcd
+      - "-advertise-client-urls=http://0.0.0.0:2379"
+      - "-listen-client-urls=http://0.0.0.0:2379"
+    ports:
+      - "2379:2379"
+    environment:
+      - ETCD_CORS=*
+  portainer:
+    image: portainer/portainer
+    ports:
+      - 49554:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      # these variables are unused by this service.
+      # They are metadata required, by the letsencrypt-companion
+      - VIRTUAL_HOST
+      - VIRTUAL_PORT
+      - LETSENCRYPT_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_EMAIL

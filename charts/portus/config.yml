@@ -1,0 +1,6 @@
+name: Portus
+description: |
+  Secure Docker registry. Web based administration. LDAP authentication.
+version: v2.3.1-3.1
+category: Applications
+maintainer: Steve Shipway <s.shipway@auckland.ac.nz>

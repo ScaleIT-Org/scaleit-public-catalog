@@ -1,0 +1,4 @@
+name: sapp-workflow-app
+description: |
+  This is the implementation of an App Solution for a Problem stated by Industry Experts in our "App-Paper-Prototyping-Workshop". A definable workflow will be processed with different web-components for every part of the workflow. These Web Components come from different Apps in the ScaleIT Eco-System, allowing custom Workflow creation by combining Web-Components inside the Workflow App.
+category: Applications

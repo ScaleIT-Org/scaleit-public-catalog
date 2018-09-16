@@ -1,0 +1,6 @@
+version: '2'
+
+catalog:
+  name: "gitlab"
+  version: "latest"
+  description: "A web-based Git repository manager with wiki and issue tracking features."
