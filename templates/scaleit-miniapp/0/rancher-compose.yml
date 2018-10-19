@@ -1,5 +1,0 @@
-.catalog:
-  name: ScaleIT-Miniapp
-  version: "v1.1"
-  description: "ScaleIT Miniapp"
-  minimum_rancher_version: v1.1.0

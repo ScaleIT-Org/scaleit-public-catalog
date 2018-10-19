@@ -1,7 +1,0 @@
-version: '2'
-services:
-   workflow-app:
-        image: sappworkflowapp_workflow-app
-#        build: "Domain Software/workflow/."
-        ports:
-          - "49530:3000"

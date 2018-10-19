@@ -1,7 +1,0 @@
-version: '2'
-services:
-  logspout:
-    image: gliderlabs/logspout:v3
-    command: 'syslog://${LOGSTASH_IP}:5000'
-    volumes:
-      - '/var/run/docker.sock:/tmp/docker.sock'
