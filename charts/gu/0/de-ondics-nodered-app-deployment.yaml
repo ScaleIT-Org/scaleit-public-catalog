@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 ()
+    rap.host: ""
+    rap.sso_disabled: "true"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: de-ondics-nodered-app
+  name: de-ondics-nodered-app
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: de-ondics-nodered-app
+    spec:
+      containers:
+      - env:
+        - name: IP_BROKER
+        - name: TZ
+          value: Europe/Berlin
+        image: scaleit-app-pool.ondics.de:5000/scaleit-app-pool/de-ondics-nodered-app:0.1.0
+        name: de-ondics-nodered-app
+        ports:
+        - containerPort: 1880
+        resources: {}
+        volumeMounts:
+        - mountPath: /data
+          name: de-ondics-nodered
+      restartPolicy: Always
+      volumes:
+      - name: de-ondics-nodered
+        persistentVolumeClaim:
+          claimName: de-ondics-nodered
+status: {}

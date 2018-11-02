@@ -1,0 +1,18 @@
+.catalog:
+  name: ScaleIT-NodeRED
+  version: "v0.1.0"
+  description: "ScaleIT NodeRED"
+  minimum_rancher_version: v1.1.0
+  questions:
+    - variable: DOMAINPREFIX
+      description: "Name für die URL"
+      label: "Name URL"
+      type: "string"
+      required: true
+      default: "nodered"
+    - variable: MQTT_IP_ADDR
+      description: "Adresse des MQTT-Brokers"
+      label: "Adresse des MQTT-Brokers"
+      type: "string"
+      required: true
+      default: "10.0.0.200"

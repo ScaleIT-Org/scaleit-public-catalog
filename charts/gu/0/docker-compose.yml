@@ -1,0 +1,18 @@
+version: '2'
+services:
+  de-ondics-nodered-app:
+    image: scaleit-app-pool.ondics.de:5000/scaleit-app-pool/de-ondics-nodered-app:0.1.0
+    restart: always
+    environment:
+      - TZ=Europe/Berlin
+      - IP_BROKER=${MQTT_IP_ADDR}
+    ports: 
+      - 1880
+    labels:
+      rap.host: ${DOMAINPREFIX}
+      rap.sso_disabled: "true"
+    volumes:
+      - de-ondics-nodered:/data
+volumes:
+  de-ondics-nodered:
+

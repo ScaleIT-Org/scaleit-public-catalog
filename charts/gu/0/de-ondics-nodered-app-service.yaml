@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 ()
+    rap.host: ""
+    rap.sso_disabled: "true"
+  creationTimestamp: null
+  labels:
+    io.kompose.service: de-ondics-nodered-app
+  name: de-ondics-nodered-app
+spec:
+  ports:
+  - name: "1880"
+    port: 1880
+    targetPort: 1880
+  selector:
+    io.kompose.service: de-ondics-nodered-app
+status:
+  loadBalancer: {}
